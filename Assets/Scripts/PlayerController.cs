@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private float velocidad = 15f;
     private float turnSpeed = 30f;
+
     private float horizontalInput;
     private float verticalInput;
     private float leftRange = -200f;
@@ -15,9 +16,16 @@ public class PlayerController : MonoBehaviour
     private float z1Range = -200f;
     private float z2Range = 200f;
 
+    public GameObject projectilPrefab;
+    public GameObject coinPrefab;
+
+    private Vector3 offset = new Vector3(0, 100, 0);
+
+    private int counter = 0;
+
     void Start()
     {
-        
+        transform.position = offset;
     }
 
     void Update()
@@ -67,5 +75,22 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y,
                 z2Range);
         }
+
+        if (Input.GetKeyDown(KeyCode.RightControl))
+        {
+            Instantiate(projectilPrefab, transform.position,
+           gameObject.transform.rotation);
+        }
+
+        if (counter == 10)
+        {
+            Debug.Log("VICTORIA");
+            Time.timeScale = 0;
+        }
+    }
+    private void OnTriggerEnter(Collider otherCollider)
+    {
+        counter++;
+        Destroy(coinPrefab);
     }
 }
