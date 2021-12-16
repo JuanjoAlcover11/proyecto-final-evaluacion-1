@@ -1754,6 +1754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7145729931145023660}
   - component: {fileID: 7145729931145023661}
+  - component: {fileID: 2657759572828362165}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1788,6 +1789,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14777b8baebf6543a8858d7e2a31986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  projectilPrefab: {fileID: 0}
+  coinPrefab: {fileID: 0}
+--- !u!65 &2657759572828362165
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7145729931145023659}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.4181414, z: 2.757393}
+  m_Center: {x: -1.8499999, y: 0.08832884, z: 1.027628}
 --- !u!1 &7145729931196425929
 GameObject:
   m_ObjectHideFlags: 0
