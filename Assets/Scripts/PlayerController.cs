@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private float z2Range = 200f;
 
     public GameObject projectilPrefab;
-    public GameObject coinPrefab;
 
     private Vector3 offset = new Vector3(0, 100, 0);
 
@@ -87,10 +86,5 @@ public class PlayerController : MonoBehaviour
             Debug.Log("VICTORIA");
             Time.timeScale = 0;
         }
-    }
-    private void OnTriggerEnter(Collider otherCollider)
-    {
-        counter++;
-        Destroy(coinPrefab);
     }
 }
