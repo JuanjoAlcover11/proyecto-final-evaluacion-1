@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -81,10 +82,21 @@ public class PlayerController : MonoBehaviour
            gameObject.transform.rotation);
         }
 
-        if (counter == 10)
+    }
+
+     private void OnTriggerEnter(Collider otherCollider)
+    {
+        if (otherCollider.gameObject.CompareTag("coin"))
         {
-            Debug.Log("VICTORIA");
-            Time.timeScale = 0;
+            counter++;
+            Destroy(otherCollider.gameObject);
+            Debug.Log($"Ahora tienes {counter} monedas");
+            if (counter == 10)
+            {
+                Time.timeScale = 0;
+                Debug.Log("VICTORIA!!!");
+            }
         }
     }
 }
+

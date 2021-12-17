@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
 {
-   private void OnTriggerEnter(Collider otherCollider)
+   private void OnCollisionEnter(Collision otherCollider)
     {
-        Destroy(gameObject);
+        if (gameObject.CompareTag("obstacle") && otherCollider.gameObject.CompareTag("player"))
+        {
+            Debug.Log($"HAS PERDIDO :(");
+            Time.timeScale = 0;
+        }
+        if (gameObject.CompareTag("obstacle") && otherCollider.gameObject.CompareTag("proyectil"))
+        {
+            Destroy(otherCollider.gameObject);
+            Destroy(gameObject);
+        }
     }
 }
